@@ -8,6 +8,7 @@
   },
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "license": "ISC",
   "devDependencies": {
     "jest": "^29.7.0"
@@ -15,4 +16,7 @@
   "scripts": {
     "test": "jest"
   }
+=======
+  "license": "ISC"
+>>>>>>> upstream/master
 }

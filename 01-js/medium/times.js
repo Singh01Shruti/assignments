@@ -8,6 +8,7 @@ Hint - use Date class exposed in JS
 There is no automated test for this one, this is more for you to understand time goes up as computation goes up
 */
 
+<<<<<<< HEAD
 function calculateSumTime(n) {
     console.time('calculateSumTime'); // Start the timer
   
@@ -23,3 +24,8 @@ function calculateSumTime(n) {
   // Example usage
   calculateSumTime(1000000000);
   
+=======
+function calculateTime(n) {
+    return 0.01;
+}
+>>>>>>> upstream/master
