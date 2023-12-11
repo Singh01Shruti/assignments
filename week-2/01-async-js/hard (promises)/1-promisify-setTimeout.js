@@ -3,4 +3,14 @@
 */
 
 function wait(n) {
+    const p = new Promise(function(resolve){
+        setTimeout(() => {
+            resolve();
+        }, n);
+    });
+    return p;
 }
+
+
+const result = wait(6);
+result.then(() => console.log("done"));
