@@ -6,7 +6,6 @@
 */
 
 function countVowels(str) {
-<<<<<<< HEAD
   const regex = /[AEIOUaeiou]/
   str = str.replace(/ /g, "");
   let count = 0;
@@ -18,9 +17,4 @@ function countVowels(str) {
 
 
 console.log(countVowels("hello i"));
-=======
-    // Your code here
-}
-
->>>>>>> upstream/master
 module.exports = countVowels;

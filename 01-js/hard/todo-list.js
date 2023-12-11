@@ -10,7 +10,6 @@
   Once you've implemented the logic, test your code by running
 */
 
-<<<<<<< HEAD
 
 class Todo {
   constructor() {
@@ -62,10 +61,4 @@ class Todo {
 
 
 
-=======
-class Todo {
-
-}
-
->>>>>>> upstream/master
 module.exports = Todo;

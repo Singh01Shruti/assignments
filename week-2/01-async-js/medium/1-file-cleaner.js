@@ -15,7 +15,11 @@ fs.writeFile('a.txt', toWrite, 'utf8', (err) => {
 function readAndwrite(){ 
 fs.readFile('a.txt', 'utf8', (err, data) => {
     if(!err){
-       write("Hello!");
+       data = data.split(' ');
+       data = data.filter(function(element) {
+        return element !== '';
+       }).join(' ');
+       write(data);
     } else{
         console.log(err);
     }
@@ -24,4 +28,3 @@ fs.readFile('a.txt', 'utf8', (err, data) => {
 }
 
 readAndwrite();
-

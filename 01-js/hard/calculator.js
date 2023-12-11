@@ -16,7 +16,6 @@
   Once you've implemented the logic, test your code by running
 */
 
-<<<<<<< HEAD
 class Calculator {
   constructor() {
     this.result = 0;
@@ -80,8 +79,5 @@ console.log(calculator.getResult()); // Output: 0
 
 calculator.calculate('10 + 2 * (6 - (4 + 1) / 2) + 7');
 console.log(calculator.getResult()); // Output: 24
-=======
-class Calculator {}
->>>>>>> upstream/master
 
 module.exports = Calculator;

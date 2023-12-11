@@ -5,9 +5,7 @@
 */
 
 function isAnagram(str1, str2) {
-<<<<<<< HEAD
   
-
   const sortedStr1 = str1.replace(/[^a-zA-Z!]/g, '').toLowerCase().split('').sort().join('');
   const sortedStr2 = str2.replace(/[^a-zA-Z!]/g, '')
   sortedStr2 = sortedStr2.toLowerCase().split('').sort().join('');
@@ -20,9 +18,4 @@ function isAnagram(str1, str2) {
 const result = isAnagram('hello', 'hello!');
 console.log(result); // Output: true
 
-=======
-
-}
-
->>>>>>> upstream/master
 module.exports = isAnagram;

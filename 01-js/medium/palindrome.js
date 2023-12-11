@@ -4,7 +4,6 @@
 */
 
 function isPalindrome(str) {
-<<<<<<< HEAD
   if(str.length == 0 || str.length == 1) return true;
   str = str.replace(/ /g, "");
   str = str.replace(/[,.!?]/g, "");
@@ -25,9 +24,4 @@ function isPalindrome(str) {
 
 
 console.log(isPalindrome("Ana"));
-=======
-  return true;
-}
-
->>>>>>> upstream/master
 module.exports = isPalindrome;
