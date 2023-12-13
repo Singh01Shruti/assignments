@@ -5,18 +5,42 @@
  */
 
 
-function waitOneSecond() {
-
+function waitOneSecond(n1) {
+    const p = new Promise (function (resolve) {
+        setTimeout( function () {
+            resolve();
+        }, n1*1000)
+    });
+    return p;
 }
 
-function waitTwoSecond() {
-
+function waitTwoSecond(n2) {
+    const p = new Promise (function (resolve) {
+        setTimeout( function () {
+            resolve();
+        }, n2*1000)
+    });
+    return p;
 }
 
-function waitThreeSecond() {
-
+function waitThreeSecond(n3) {
+    const p = new Promise (function (resolve) {
+        setTimeout( function () {
+            resolve();
+        }, n3*1000)
+    });
+    return p;
 }
 
 function calculateTime() {
+    const start = new Date().getTime();
+    Promise.all([waitOneSecond(1), waitTwoSecond(2), waitThreeSecond(3)])
+    .then(() => {
+        const totalTime = Math.floor((new Date().getTime() - start) / 1000);
+        console.log(totalTime);
+    })
 
 }
+
+calculateTime();
+
