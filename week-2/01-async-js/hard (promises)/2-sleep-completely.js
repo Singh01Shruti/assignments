@@ -4,7 +4,7 @@
  * the function should return a promise just like before
  */
 
-async function sleep (seconds) {
+function sleep (seconds) {
     const p = new Promise(function(resolve){
        setTimeout(() => {
             resolve();
@@ -13,6 +13,5 @@ async function sleep (seconds) {
     return p;
 }
 
-const result = sleep(6999);
-result.then(() => console.log("hi after seconds"));
+module.exports = sleep;
 

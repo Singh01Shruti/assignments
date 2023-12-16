@@ -32,16 +32,15 @@ function waitThreeSecond(n3) {
     return p;
 }
 
- function calculateTime() {
-    const start = new Date().getTime();
-       waitOneSecond(1).then(() => {
-        return waitTwoSecond(2);
+ function calculateTime(t1,t2,t3) {
+    const start = Date.now();
+      return waitOneSecond(t1).then(() => {
+        return waitTwoSecond(t2);
     }).then(() => {
-       return waitThreeSecond(3);
+       return waitThreeSecond(t3);
     }).then(() => {
-        const totalTime = Math.floor((new Date().getTime() - start) / 1000);
-        console.log(totalTime);
+        return Date.now()-start;
     });  
 }
 
-calculateTime();
+module.exports = calculateTime;

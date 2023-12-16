@@ -41,9 +41,88 @@
  */
   const express = require('express');
   const bodyParser = require('body-parser');
-  
+  const todos = require('./todos.json');
+  const {v4: uuidv4} = require('uuid');
+  const fs = require('fs');
+
   const app = express();
   
   app.use(bodyParser.json());
   
+  app.get('/todos', (req, res) => {
+    res.json(todos);
+  });
+
+  app.get('/todos/:id', (req,res) => {
+    const { id } = req.params;
+    const todoId = parseInt(id, 10);
+    const todo = todos.find(todo => todo.id === todoId);
+    if(!todo){
+      res.status(404).send();
+    } else{
+      res.status(200).json(todo);
+    }
+  });
+
+  app.post('/todos' , (req,res) => {
+    const {title, description} = req.body;
+    
+    if(!title || !description) {
+      return res.status(404).send();
+    }
+
+    const newTodo = {
+      id: uuidv4(),
+      title,
+      description,
+    };
+    todos.push(newTodo);
+    //fs.writeFileSync('./todos.json', JSON.stringify(todos, null, 2), 'utf-8');
+
+    res.status(201).json(newTodo);
+  });
+
+app.put('/todos/:id', (req,res) => {
+  const { id } = req.params;
+  const todoId = parseInt(id, 10);
+  const todo = todos.find(todo => todo.id === todoId);
+  const {newTitle, newDescription } = req.body.description;
+
+  if(!todo) {
+    return res.status(404).send();
+  }
+
+ todo.title = newTitle || todo.title;
+ todo.description = newDescription || todo.description ;
+
+ //fs.writeFileSync('./todos.json', JSON.stringify(todos, null, 2), 'utf-8');
+ 
+ res.status(200).json(todo);
+ });
+
+ app.delete('/todos/:id' , (req,res) => {
+  const { id } = req.params;
+  const todoId = parseInt(id, 10);
+  const todo = todos.findIndex(todo => todo.id === todoId);
+
+  if(!todo){
+    return res.status(404).send();
+  }
+
+  todos.splice(todo,1);
+  
+  //fs.writeFileSync('./todos.json', JSON.stringify(todos, null, 2), 'utf-8');
+  res.status(200).send();
+ 
+ });
+
+ app.use((req,res) => {
+    res.status(404).json({error : 'Not found'});
+ });
+
+ /*
+ app.listen(3000, () => {
+  console.log("Listening") ;
+});
+*/
   module.exports = app;

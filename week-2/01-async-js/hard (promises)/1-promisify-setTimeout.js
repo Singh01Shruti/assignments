@@ -6,11 +6,14 @@ function wait(n) {
     const p = new Promise(function(resolve){
         setTimeout(() => {
             resolve();
-        }, n);
+        }, n*1000);
     });
     return p;
 }
 
+module.exports = wait;
+/*
+const result = wait(1);
 
-const result = wait(6);
-result.then(() => console.log("done"));
+result.then();
+*/
