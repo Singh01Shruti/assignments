@@ -59,8 +59,11 @@ router.get('/purchasedCourses', userMiddleware, async (req, res) => {
     // Implement fetching purchased courses logic
     try{
         
-        const user = await User.findOne({token : req.headers.authorization}).populate('purchasedCourses');
-        res.status(200).json(user.purchasedCourses);
+        const user = await User.findOne({token : req.headers.authorization})
+        const { purchasedCourses}  = await user.populate("purchasedCourses");
+    
+        res.json({purchasedCourses});
+        //res.status(200).json(user.purchasedCourses);
     }catch{
         res.status(401).send('Invalid login');   
     }
